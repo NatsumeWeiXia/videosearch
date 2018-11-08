@@ -11,4 +11,12 @@ sudo apt-get update
 sudo apt-get install ffmpeg
 ```
 
-## 2) install OpenCV
+## 2) install Python
+
+```
+sudo apt-get install python
+```
+
+## 3) install OpenCV
+
+
