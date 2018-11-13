@@ -52,3 +52,24 @@ $ sudo make install
 $ sudo /bin/bash -c 'echo "/YOUR PREFIX/lib" > /etc/ld.so.conf.d/opencv.conf'
 $ sudo ldconfig
 ```
+
+
+ERRORS:
+
+If you receive error :
+```
+/usr/bin/ld: extract.o: undefined reference to symbol 'pthread_create@@GLIBC_2.2.5'
+/lib/x86_64-linux-gnu/libpthread.so.0: error adding symbols: DSO missing from command line
+```
+when doing:
+
+*Step 6: Build SIFT extractor and extract SIFT for each keyframe in database:*
+```
+cd $mypath/videosearch/indexer/local_descriptors/
+make
+./run_sift_extraction_test.sh
+```
+add **-pthread** to the Makefile at this folder:
+```
+CXXFLAGS = -std=c++0x -O3 -g -Wall -fmessage-length=0 -pthread 
+```
